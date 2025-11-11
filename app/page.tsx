@@ -9,6 +9,7 @@ import FlowSection from '@/components/FlowSection'
 import ContactForm from '@/components/ContactForm'
 import ScrollToTop from '@/components/ScrollToTop'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FaEnvelope } from 'react-icons/fa'
 
 export default function Home() {
@@ -27,15 +28,15 @@ export default function Home() {
       {/* フッター */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
+          <div className="grid md:grid-cols-12 gap-8">
+            <div className="md:col-span-6">
               <h3 className="text-xl font-bold mb-4">メイプルのお片付け</h3>
-              <p className="text-gray-400">
-                広島で不用品回収、遺品整理、解体前のお片付けを承っております。
+              <p className="text-sm text-gray-400 lg:mr-10 leading-relaxed">
+                広島県全域で不用品回収、遺品整理、解体前のお片付けを承っております。お客様のご要望に合わせた柔軟な対応と、丁寧な作業で信頼をいただいております。少量のお片付けから大規模な整理まで、まずはお気軽にご相談ください。土日対応も可能です。
               </p>
             </div>
 
-            <div>
+            <div className="md:col-span-3">
               <h3 className="text-xl font-bold mb-4">お問い合わせ</h3>
               <div className="space-y-2">
                 <p className="flex items-center">
@@ -60,7 +61,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div>
+            <div className="md:col-span-3">
               <h3 className="text-xl font-bold mb-4">会社概要</h3>
               <div className="space-y-2">
                 <p>
@@ -75,9 +76,16 @@ export default function Home() {
                   </a>
                 </p>
                 <p className="text-gray-400">
-                  広島県全域
-                  <br />
-                  ※一部地域を除く
+                  対応地域：広島県全域<span className='text-sm'>（※一部地域を除く）</span>
+                </p>
+                <p>
+                  <Link
+                    href="/privacy"
+                    className="hover:opacity-60 transition"
+                    style={{ color: "#4a9eff" }}
+                  >
+                    プライバシーポリシー
+                  </Link>
                 </p>
               </div>
             </div>

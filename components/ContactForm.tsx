@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import Image from 'next/image'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -117,16 +118,28 @@ export default function ContactForm() {
           </div>
 
           {status === 'success' ? (
-            <div ref={successAnimation.ref} className={`bg-green-500 text-white p-8 rounded-2xl text-center shadow-lg fade-in-up ${successAnimation.isVisible ? 'visible' : ''}`}>
-              <div className="text-6xl mb-4">✅</div>
-              <h3 className="text-3xl font-bold mb-4">送信完了！</h3>
-              <p className="text-xl mb-6">
-                お問い合わせありがとうございます。<br />
-                担当者より折り返しご連絡させていただきます。
-              </p>
+            <div className="bg-white text-gray-900 rounded-2xl shadow-lg p-6 md:p-8">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 mb-6">
+                <div className="flex-shrink-0">
+                  <Image
+                    src="/images/maple_face.svg"
+                    alt="メイプル"
+                    width={100}
+                    height={100}
+                    className="w-20 h-20 md:w-24 md:h-24"
+                  />
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-primary">送信完了！</h3>
+                  <p className="text-base md:text-lg leading-relaxed text-justify">
+                    お問い合わせいただき、ありがとうございます。<br />
+                    担当者より2営業日以内にご連絡いたしますので、今しばらくお待ちください。
+                  </p>
+                </div>
+              </div>
               <button
                 onClick={() => setStatus('idle')}
-                className="bg-white text-green-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition"
+                className="w-full md:w-auto md:mx-auto md:block bg-accent hover:bg-orange-600 text-white font-bold py-4 md:py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-md text-base md:text-lg flex items-center justify-center"
               >
                 もう一度送信する
               </button>
@@ -336,7 +349,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="bg-accent hover:bg-accent-dark text-white font-bold text-xl py-4 px-12 rounded-full transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="bg-accent hover:bg-orange-600 text-white font-bold text-xl py-4 px-12 rounded-full transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-accent flex items-center justify-center mx-auto"
                   >
                     {status === 'loading' ? '送信中...' : '送信する'}
                   </button>

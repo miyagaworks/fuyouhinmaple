@@ -189,6 +189,7 @@ export default function PricingSection() {
                     src="/images/kaitai2.jpg"
                     alt="解体工事"
                     fill
+                    sizes="(max-width: 1280px) 0px, 50vw"
                     className="object-cover"
                     style={{ objectPosition: '50% 55%' }}
                   />

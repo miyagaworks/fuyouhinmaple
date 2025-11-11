@@ -73,7 +73,7 @@ export default function WarningSection() {
             <div className="grid md:grid-cols-[1fr_auto] gap-6 items-center">
               <div>
                 <h3 className="text-xl font-bold mb-6 flex items-center">
-                  <Image src="/images/maple_face.svg" alt="メイプル" width={36} height={36} className="mr-3" />
+                  <Image src="/images/maple_face.svg" alt="メイプル" width={36} height={36} className="mr-3 w-9 h-9" />
                   メイプルがお約束する安心のサービス
                 </h3>
                 <p className="text-lg mb-6">
