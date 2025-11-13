@@ -45,8 +45,9 @@ export async function POST(request: NextRequest) {
 
     // 管理者向けメール（モダンなデザイン）
     const adminMailOptions = {
-      from: process.env.SMTP_USER,
+      from: `"メイプル お問い合わせフォーム" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+      replyTo: `"${name}" <${email}>`, // 返信先を送信者に設定
       subject: `【メイプル】お問い合わせ：${inquiryType} - ${name}様`,
       text: `
 お問い合わせがありました。
@@ -275,8 +276,9 @@ ${message}
 
     // お客様向け自動返信メール
     const customerMailOptions = {
-      from: process.env.SMTP_USER,
+      from: `"株式会社メイプル" <${process.env.SMTP_USER}>`,
       to: email,
+      replyTo: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
       subject: '【メイプル】お問い合わせありがとうございます',
       text: `
 ${name} 様
@@ -556,8 +558,19 @@ Web：https://huyouhinmaple-hiroshima.com
 
     // 管理者へメール送信
     try {
+      console.log('管理者メール送信開始:', {
+        from: adminMailOptions.from,
+        to: adminMailOptions.to,
+        replyTo: adminMailOptions.replyTo,
+        subject: adminMailOptions.subject
+      })
       const adminResult = await transporter.sendMail(adminMailOptions)
-      console.log('管理者メール送信成功:', adminResult.messageId)
+      console.log('管理者メール送信成功:', {
+        messageId: adminResult.messageId,
+        accepted: adminResult.accepted,
+        rejected: adminResult.rejected,
+        response: adminResult.response
+      })
     } catch (error) {
       console.error('管理者メール送信失敗:', error)
       throw error
@@ -565,8 +578,18 @@ Web：https://huyouhinmaple-hiroshima.com
 
     // お客様へ自動返信メール送信
     try {
+      console.log('顧客メール送信開始:', {
+        from: customerMailOptions.from,
+        to: customerMailOptions.to,
+        subject: customerMailOptions.subject
+      })
       const customerResult = await transporter.sendMail(customerMailOptions)
-      console.log('顧客メール送信成功:', customerResult.messageId)
+      console.log('顧客メール送信成功:', {
+        messageId: customerResult.messageId,
+        accepted: customerResult.accepted,
+        rejected: customerResult.rejected,
+        response: customerResult.response
+      })
     } catch (error) {
       console.error('顧客メール送信失敗:', error)
       throw error
