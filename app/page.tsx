@@ -101,7 +101,7 @@ export default function Home() {
       <div className="fixed bottom-0 left-0 right-0 z-40 xl:hidden flex">
         <a
           href="tel:0120-551-669"
-          className="flex-1 text-white font-bold py-4 px-4 rounded-tl-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 flex items-center justify-center gap-3 border-r border-white active:scale-95 border-t border-l border-white"
+          className="flex-1 text-white font-bold py-4 px-4 rounded-tl-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 flex items-center justify-center gap-3 border-r border-t border-l border-white active:scale-95"
           style={{ background: "linear-gradient(to bottom, #004ae8, #0026a4)" }}
         >
           <Image

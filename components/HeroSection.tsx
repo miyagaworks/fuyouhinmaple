@@ -19,7 +19,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative bg-secondary pt-12 md:pt-16 lg:pt-20 pb-12 md:pb-16 xl:pb-16">
+    <section className="relative bg-secondary pt-24 pb-16">
       <div className="container mx-auto px-4 relative z-10">
         {/* PC版レイアウト */}
         <div className="hidden xl:block">

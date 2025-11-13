@@ -15,21 +15,32 @@ export async function POST(request: NextRequest) {
     }
 
     // メール設定（環境変数から取得）
-    // 実際の運用では .env.local に以下を設定してください：
-    // SMTP_HOST=smtp.gmail.com
-    // SMTP_PORT=587
-    // SMTP_USER=your-email@gmail.com
-    // SMTP_PASS=your-app-password
-    // CONTACT_EMAIL=contact@your-domain.com
+    // ロリポップの場合:
+    // SMTP_HOST=smtp.lolipop.jp
+    // SMTP_PORT=465
+    // SMTP_USER=info@huyouhinmaple-hiroshima.com
+    // SMTP_PASS=your-mail-password
+    // CONTACT_EMAIL=info@huyouhinmaple-hiroshima.com
 
+    const smtpPort = parseInt(process.env.SMTP_PORT || '465')
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: parseInt(process.env.SMTP_PORT || '587') === 465, // ポート465の場合はSSL
+      host: process.env.SMTP_HOST || 'smtp.lolipop.jp',
+      port: smtpPort,
+      secure: smtpPort === 465, // ポート465の場合はSSL、587の場合はTLS
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      tls: {
+        // ロリポップの証明書検証を緩和（必要な場合）
+        rejectUnauthorized: true,
+        minVersion: 'TLSv1.2'
+      },
+      connectionTimeout: 10000, // 10秒
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
+      debug: true, // デバッグログを有効化
+      logger: true // ロガーを有効化
     })
 
     // 管理者向けメール（モダンなデザイン）
@@ -520,32 +531,60 @@ Web：https://huyouhinmaple-hiroshima.com
       `,
     }
 
-    // 開発環境ではメール送信をスキップ（ログのみ出力）
+    // 環境変数の確認
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      console.log('メール送信設定が未設定のため、以下の内容をログに出力します：')
-      console.log(adminMailOptions)
-      console.log(customerMailOptions)
+      console.error('環境変数が設定されていません:', {
+        SMTP_HOST: process.env.SMTP_HOST ? '設定済み' : '未設定',
+        SMTP_PORT: process.env.SMTP_PORT ? '設定済み' : '未設定',
+        SMTP_USER: process.env.SMTP_USER ? '設定済み' : '未設定',
+        SMTP_PASS: process.env.SMTP_PASS ? '設定済み' : '未設定',
+        CONTACT_EMAIL: process.env.CONTACT_EMAIL ? '設定済み' : '未設定'
+      })
 
       return NextResponse.json(
-        { message: '開発モード：メールはログに出力されました' },
-        { status: 200 }
+        { error: '環境変数が未設定です。管理者に連絡してください。' },
+        { status: 500 }
       )
     }
 
+    console.log('メール送信開始:', {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      user: process.env.SMTP_USER,
+      to: process.env.CONTACT_EMAIL || process.env.SMTP_USER
+    })
+
     // 管理者へメール送信
-    await transporter.sendMail(adminMailOptions)
+    try {
+      const adminResult = await transporter.sendMail(adminMailOptions)
+      console.log('管理者メール送信成功:', adminResult.messageId)
+    } catch (error) {
+      console.error('管理者メール送信失敗:', error)
+      throw error
+    }
 
     // お客様へ自動返信メール送信
-    await transporter.sendMail(customerMailOptions)
+    try {
+      const customerResult = await transporter.sendMail(customerMailOptions)
+      console.log('顧客メール送信成功:', customerResult.messageId)
+    } catch (error) {
+      console.error('顧客メール送信失敗:', error)
+      throw error
+    }
 
     return NextResponse.json(
       { message: 'メールが正常に送信されました' },
       { status: 200 }
     )
   } catch (error) {
-    console.error('メール送信エラー:', error)
+    console.error('メール送信エラー詳細:', {
+      name: error instanceof Error ? error.name : 'Unknown',
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined
+    })
+
     return NextResponse.json(
-      { error: 'メール送信に失敗しました' },
+      { error: 'メール送信に失敗しました。管理者に連絡してください。' },
       { status: 500 }
     )
   }
