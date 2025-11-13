@@ -94,6 +94,7 @@ export default function ProblemsSection() {
                       src={problem.image}
                       alt={problem.title}
                       fill
+                      sizes="100vw"
                       className="object-cover"
                       style={{ objectPosition: 'center 40%' }}
                     />
@@ -130,6 +131,7 @@ export default function ProblemsSection() {
                         src={problem.image}
                         alt={problem.title}
                         fill
+                        sizes="(max-width: 1280px) 50vw, 33vw"
                         className="object-cover scale-125"
                         style={{ objectPosition: 'center 40%' }}
                       />
@@ -165,6 +167,7 @@ export default function ProblemsSection() {
                         src={problem.image}
                         alt={problem.title}
                         fill
+                        sizes="50vw"
                         className="object-cover"
                         style={{ objectPosition: 'center 40%' }}
                       />
