@@ -13,36 +13,36 @@ export default function PricingSection() {
   const ctaAnimation = useScrollAnimation(0.1)
   const plans = [
     {
-      name: '軽トラ半パック',
-      badge: '安さ\nNO.1',
-      description: '少量の不用品回収はこちら',
-      items: '運賃（軽トラ）＋作業費＋スタッフ費',
-      price: '3,300〜7,700円',
-      gradientFrom: '#ffc000',
-      gradientTo: '#cc9900',
-      image: '/images/keitora01.svg'
+      name: "軽トラ半パック",
+      badge: "安さ\nNO.1",
+      description: "少量の不用品回収はこちら",
+      items: "運賃（軽トラ）＋作業費＋スタッフ費",
+      price: "3,300〜7,700円",
+      gradientFrom: "#ffc000",
+      gradientTo: "#cc9900",
+      image: "/images/keitora01.svg",
     },
     {
-      name: '軽トラパック',
-      badge: '迷ったら\nこれ！',
-      description: '単身のお引っ越し等に',
-      items: '運賃（軽トラ）＋作業費＋スタッフ費',
-      price: '8,800〜15,400円',
-      gradientFrom: '#f59d0f',
-      gradientTo: '#c37a0c',
-      image: '/images/keitora02.svg'
+      name: "軽トラパック",
+      badge: "迷ったら\nこれ！",
+      description: "引っ越しや遺品整理はこちら",
+      items: "運賃（軽トラ）＋作業費＋スタッフ費",
+      price: "8,800〜15,400円",
+      gradientFrom: "#f59d0f",
+      gradientTo: "#c37a0c",
+      image: "/images/keitora02.svg",
     },
     {
-      name: '軽トラ特盛パック',
-      badge: 'たっぷり\nお得！',
-      description: '家族のお引っ越し等に最適なサイズ',
-      items: '運賃（軽トラ）＋作業費＋スタッフ費',
-      price: '15,400〜31,900円',
-      gradientFrom: '#EC6C26',
-      gradientTo: '#b8531d',
-      image: '/images/keitora03.svg'
-    }
-  ]
+      name: "軽トラ特盛パック",
+      badge: "たっぷり\nお得！",
+      description: "解体や売却はこちら",
+      items: "運賃（軽トラ）＋作業費＋スタッフ費",
+      price: "15,400〜31,900円",
+      gradientFrom: "#EC6C26",
+      gradientTo: "#b8531d",
+      image: "/images/keitora03.svg",
+    },
+  ];
 
   return (
     <section id="plans" className="relative">
@@ -54,7 +54,8 @@ export default function PricingSection() {
             <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold mb-4">料金プラン</h2>
             <p className="text-2xl md:text-3xl text-accent font-semibold">
               通常より30%程度安い！<br />
-              <span className="text-3xl md:text-4xl">12,000円/m³目安</span>
+              <span className="text-3xl md:text-4xl">12,000円/m³目安</span><br />
+              <span className="text-2xl md:text-3xl xl:mt-2 xl:inline-block">広島最安値を目指す</span>
             </p>
           </div>
 
@@ -100,7 +101,38 @@ export default function PricingSection() {
                 </div>
               </div>
 
-              <div className="p-6">
+              {/* スマホ版コンテンツ - 横並びコンパクト */}
+              <div className="md:hidden p-4">
+                <div className="flex gap-3">
+                  {/* 左側: 軽トラ画像 */}
+                  <div className="w-28 flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center p-2 shadow-[inset_0_2px_8px_rgba(0,0,0,0.15)]">
+                    <Image
+                      src={plan.image}
+                      alt="軽トラック"
+                      width={100}
+                      height={75}
+                      className="object-contain w-full h-auto drop-shadow-lg"
+                    />
+                  </div>
+                  {/* 右側: 運賃等 + 価格 */}
+                  <div className="flex-1 flex flex-col justify-between">
+                    {/* 上: 運賃+作業費+人件費 */}
+                    <div className="bg-secondary text-white text-center py-2 rounded-full font-medium shadow-lg text-sm">
+                      運賃 + 作業費 + 人件費
+                    </div>
+                    {/* 下: 価格 */}
+                    <div className="text-center py-2 rounded-lg mt-2" style={{ backgroundColor: '#fff4e6' }}>
+                      <p className="text-xl font-bold" style={{ color: '#ec6c26' }}>
+                        {plan.price}
+                      </p>
+                      <p className="text-xs text-gray-600 font-medium">（税込）</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* タブレット・PC版コンテンツ */}
+              <div className="hidden md:block p-6">
                 {/* 軽トラ画像プレースホルダー */}
                 <div className="mb-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center p-8 shadow-[inset_0_2px_8px_rgba(0,0,0,0.15)]">
                   <Image
@@ -108,7 +140,7 @@ export default function PricingSection() {
                     alt="軽トラック"
                     width={140}
                     height={105}
-                    className="object-contain w-4/5 md:w-3/4 xl:w-3/5 h-auto drop-shadow-lg"
+                    className="object-contain w-3/4 xl:w-3/5 h-auto drop-shadow-lg"
                   />
                 </div>
 
@@ -127,11 +159,9 @@ export default function PricingSection() {
                 </div>
 
                 <div className="mt-6 text-center py-4 rounded-xl" style={{ backgroundColor: '#fff4e6' }}>
-                  <p className="text-3xl md:text-3xl xl:text-4xl font-bold" style={{ color: '#ec6c26' }}>
-                    {/* スマホ: 1行表示 */}
-                    <span className="md:hidden">{plan.price}</span>
+                  <p className="text-3xl xl:text-4xl font-bold" style={{ color: '#ec6c26' }}>
                     {/* タブレット: 2行表示 */}
-                    <span className="hidden md:block xl:hidden">
+                    <span className="xl:hidden">
                       {plan.price.split('〜')[0]}〜<br />
                       {plan.price.split('〜')[1]}
                     </span>

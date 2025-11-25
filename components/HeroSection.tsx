@@ -19,20 +19,27 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative bg-secondary pt-24 pb-16">
+    <section className="relative bg-secondary pt-16 md:pt-24 pb-16">
       <div className="container mx-auto px-4 relative z-10">
         {/* PC版レイアウト */}
         <div className="hidden xl:block">
+          {/* 斜めバー */}
+          <div className="flex justify-center items-center mb-4">
+            <div
+              className="bg-red-600 text-white font-bold px-8 text-2xl rounded-lg flex items-center justify-center"
+              style={{ transform: "rotate(-3deg)", paddingTop: "8px", paddingBottom: "10px", lineHeight: "1" }}
+            >
+              広島市全域対応
+            </div>
+          </div>
           {/* タイトル */}
           <h1
-            className="text-9xl font-bold mb-24 text-center text-white"
-            style={{ lineHeight: "0.6" }}
+            className="text-7xl font-bold mb-24 text-center text-white"
+            style={{ lineHeight: "1.8" }}
           >
-            解体前のお片付け
+            遺品整理・不用品回収なら
             <br />
-            <span className="text-4xl">
-              解体前の不用品回収や遺品整理もお任せください
-            </span>
+            <span className="text-8xl">メイプルのお片付けにお任せ！</span>
           </h1>
 
           <div className="grid grid-cols-5 gap-8 items-start mb-16 max-w-7xl mx-auto">
@@ -188,16 +195,23 @@ export default function HeroSection() {
 
         {/* タブレット版レイアウト */}
         <div className="hidden md:block xl:hidden">
+          {/* 斜めバー */}
+          <div className="flex justify-center items-center mb-4">
+            <div
+              className="bg-red-600 text-white font-bold px-6 text-xl rounded-lg flex items-center justify-center"
+              style={{ transform: "rotate(-3deg)", paddingTop: "7px", paddingBottom: "9px", lineHeight: "1" }}
+            >
+              広島市全域対応
+            </div>
+          </div>
           {/* タイトル */}
           <h1
-            className="text-7xl font-bold mb-12 text-center text-white"
-            style={{ lineHeight: "0.9" }}
+            className="text-6xl font-bold mb-12 text-center text-white"
+            style={{ lineHeight: "1.2" }}
           >
-            解体前のお片付け
+            遺品整理・不用品回収なら
             <br />
-            <span className="text-3xl">
-              解体前の不用品回収や遺品整理もお任せください
-            </span>
+            <span className="text-5xl">メイプルのお片付けにお任せ！</span>
           </h1>
 
           {/* バッジ */}
@@ -310,16 +324,23 @@ export default function HeroSection() {
         </div>
 
         {/* モバイル版レイアウト */}
-        <div className="md:hidden pt-4">
+        <div className="md:hidden pt-0">
+          {/* 斜めバー */}
+          <div className="flex justify-center items-center mb-3">
+            <div
+              className="bg-red-600 text-white font-bold px-4 text-sm rounded-md flex items-center justify-center"
+              style={{ transform: "rotate(-3deg)", paddingTop: "5px", paddingBottom: "7px", lineHeight: "1" }}
+            >
+              広島市全域対応
+            </div>
+          </div>
           <h1
             className="font-bold leading-relaxed mb-6 text-center text-white"
-            style={{ fontSize: "2.3rem", lineHeight: "0.9" }}
+            style={{ fontSize: "1.6rem", lineHeight: "1.5" }}
           >
-            解体前のお片付け
+            遺品整理・不用品回収なら
             <br />
-            <span className="text-sm">
-              解体前の不用品回収や遺品整理もお任せください
-            </span>
+            <span className="text-2xl">メイプルのお片付けにお任せ！</span>
           </h1>
 
           {/* バッジ */}
