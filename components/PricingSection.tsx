@@ -13,34 +13,34 @@ export default function PricingSection() {
   const ctaAnimation = useScrollAnimation(0.1)
   const plans = [
     {
-      name: "軽トラ半パック",
+      name: "Sパック",
       badge: "安さ\nNO.1",
-      description: "少量の不用品回収はこちら",
+      description: "少量の不用品回収",
       items: "運賃（軽トラ）＋作業費＋スタッフ費",
       price: "3,300〜7,700円",
       gradientFrom: "#ffc000",
       gradientTo: "#cc9900",
-      image: "/images/keitora01.svg",
+      image: "/images/s_pac.png",
     },
     {
-      name: "軽トラパック",
+      name: "Mパック",
       badge: "迷ったら\nこれ！",
-      description: "引っ越しや遺品整理はこちら",
+      description: "1ルームの引っ越しや遺品整理向け",
       items: "運賃（軽トラ）＋作業費＋スタッフ費",
       price: "8,800〜15,400円",
       gradientFrom: "#f59d0f",
       gradientTo: "#c37a0c",
-      image: "/images/keitora02.svg",
+      image: "/images/m_pac.png",
     },
     {
-      name: "軽トラ特盛パック",
+      name: "Lパック",
       badge: "たっぷり\nお得！",
-      description: "解体や売却はこちら",
+      description: "1DK、1LDK以上の方の引っ越しや解体、売却",
       items: "運賃（軽トラ）＋作業費＋スタッフ費",
       price: "15,400〜31,900円",
       gradientFrom: "#EC6C26",
       gradientTo: "#b8531d",
-      image: "/images/keitora03.svg",
+      image: "/images/l_pac.png",
     },
   ];
 
@@ -84,8 +84,8 @@ export default function PricingSection() {
                   <span className="inline-block bg-white text-gray-900 text-xs font-bold px-4 py-1.5 rounded-full mb-3 shadow-lg">
                     {plan.badge}
                   </span>
-                  <h3 className={`font-bold mb-1 ${index === 2 ? 'text-[1.375rem]' : 'text-2xl'}`}>{plan.name}</h3>
-                  <p className="text-sm opacity-90">{plan.description}</p>
+                  <h3 className="font-bold mb-1 text-2xl">{plan.name}</h3>
+                  <p className="text-sm opacity-90 min-h-[2.5rem]">{plan.description}</p>
                 </div>
 
                 {/* スマホ版ヘッダー */}
@@ -102,16 +102,16 @@ export default function PricingSection() {
               </div>
 
               {/* スマホ版コンテンツ - 横並びコンパクト */}
-              <div className="md:hidden p-4">
+              <div className="md:hidden p-4 bg-gray-100">
                 <div className="flex gap-3">
                   {/* 左側: 軽トラ画像 */}
-                  <div className="w-28 flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center p-2 shadow-[inset_0_2px_8px_rgba(0,0,0,0.15)]">
+                  <div className="flex-shrink-0 bg-white rounded-lg flex items-center justify-center p-4 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.15)]">
                     <Image
                       src={plan.image}
                       alt="軽トラック"
                       width={100}
                       height={75}
-                      className="object-contain w-full h-auto drop-shadow-lg"
+                      className="object-contain rounded-lg"
                     />
                   </div>
                   {/* 右側: 運賃等 + 価格 */}
@@ -132,15 +132,15 @@ export default function PricingSection() {
               </div>
 
               {/* タブレット・PC版コンテンツ */}
-              <div className="hidden md:block p-6">
+              <div className="hidden md:block p-6 bg-gray-100">
                 {/* 軽トラ画像プレースホルダー */}
-                <div className="mb-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center p-8 shadow-[inset_0_2px_8px_rgba(0,0,0,0.15)]">
+                <div className="mb-6 bg-white rounded-xl flex items-center justify-center p-6 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.15)]">
                   <Image
                     src={plan.image}
                     alt="軽トラック"
-                    width={140}
-                    height={105}
-                    className="object-contain w-3/4 xl:w-3/5 h-auto drop-shadow-lg"
+                    width={280}
+                    height={210}
+                    className="object-contain rounded-xl w-[200px] h-[150px] xl:w-[280px] xl:h-[210px]"
                   />
                 </div>
 
