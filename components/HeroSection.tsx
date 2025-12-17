@@ -23,11 +23,11 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         {/* PC版レイアウト */}
         <div className="hidden xl:block">
-          {/* 斜めバー */}
+          {/* 対応エリアバー */}
           <div className="flex justify-center items-center mb-4">
             <div
-              className="bg-red-600 text-white font-bold px-8 text-2xl rounded-lg flex items-center justify-center"
-              style={{ transform: "rotate(-3deg)", paddingTop: "8px", paddingBottom: "10px", lineHeight: "1" }}
+              className="bg-red-600 text-white font-bold px-10 text-4xl rounded-lg flex items-center justify-center"
+              style={{ paddingTop: "10px", paddingBottom: "12px", lineHeight: "1" }}
             >
               広島市全域対応
             </div>
@@ -195,11 +195,11 @@ export default function HeroSection() {
 
         {/* タブレット版レイアウト */}
         <div className="hidden md:block xl:hidden">
-          {/* 斜めバー */}
+          {/* 対応エリアバー */}
           <div className="flex justify-center items-center mb-4">
             <div
-              className="bg-red-600 text-white font-bold px-6 text-xl rounded-lg flex items-center justify-center"
-              style={{ transform: "rotate(-3deg)", paddingTop: "7px", paddingBottom: "9px", lineHeight: "1" }}
+              className="bg-red-600 text-white font-bold px-8 text-3xl rounded-lg flex items-center justify-center"
+              style={{ paddingTop: "8px", paddingBottom: "10px", lineHeight: "1" }}
             >
               広島市全域対応
             </div>
@@ -325,11 +325,11 @@ export default function HeroSection() {
 
         {/* モバイル版レイアウト */}
         <div className="md:hidden pt-0">
-          {/* 斜めバー */}
+          {/* 対応エリアバー */}
           <div className="flex justify-center items-center mb-3">
             <div
-              className="bg-red-600 text-white font-bold px-4 text-sm rounded-md flex items-center justify-center"
-              style={{ transform: "rotate(-3deg)", paddingTop: "5px", paddingBottom: "7px", lineHeight: "1" }}
+              className="bg-red-600 text-white font-bold px-5 text-2xl rounded-md flex items-center justify-center"
+              style={{ paddingTop: "6px", paddingBottom: "8px", lineHeight: "1" }}
             >
               広島市全域対応
             </div>

@@ -67,7 +67,7 @@ export default function CTAButton({
           <span className={`${textSizes[size]} -mt-1`}>0120-551-669</span>
         </a>
         {showDescription && (
-          <p className="text-white text-center mt-2 text-base">受付日時：土日対応可能 9時〜18時</p>
+          <p className="text-white text-center mt-2 text-base">毎日営業（9:00〜18:00）</p>
         )}
       </div>
     )

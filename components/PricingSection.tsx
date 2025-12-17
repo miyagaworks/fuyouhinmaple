@@ -16,7 +16,7 @@ export default function PricingSection() {
       name: "Sパック",
       badge: "安さ\nNO.1",
       description: "少量の不用品回収",
-      items: "運賃（軽トラ）＋作業費＋スタッフ費",
+      items: "運賃＋作業費＋人件費（トラック）",
       price: "3,300〜7,700円",
       gradientFrom: "#ffc000",
       gradientTo: "#cc9900",
@@ -26,7 +26,7 @@ export default function PricingSection() {
       name: "Mパック",
       badge: "迷ったら\nこれ！",
       description: "1ルームの引っ越しや遺品整理向け",
-      items: "運賃（軽トラ）＋作業費＋スタッフ費",
+      items: "運賃＋作業費＋人件費（トラック）",
       price: "8,800〜15,400円",
       gradientFrom: "#f59d0f",
       gradientTo: "#c37a0c",
@@ -36,7 +36,7 @@ export default function PricingSection() {
       name: "Lパック",
       badge: "たっぷり\nお得！",
       description: "1DK、1LDK以上の方の引っ越しや解体、売却",
-      items: "運賃（軽トラ）＋作業費＋スタッフ費",
+      items: "運賃＋作業費＋人件費（トラック）",
       price: "15,400〜31,900円",
       gradientFrom: "#EC6C26",
       gradientTo: "#b8531d",
@@ -117,8 +117,9 @@ export default function PricingSection() {
                   {/* 右側: 運賃等 + 価格 */}
                   <div className="flex-1 flex flex-col justify-between">
                     {/* 上: 運賃+作業費+人件費 */}
-                    <div className="bg-secondary text-white text-center py-2 rounded-full font-medium shadow-lg text-sm">
-                      運賃 + 作業費 + 人件費
+                    <div className="bg-secondary text-white text-center py-2 rounded-full font-medium shadow-lg text-sm leading-tight">
+                      運賃 + 作業費 + 人件費<br />
+                      （トラック）
                     </div>
                     {/* 下: 価格 */}
                     <div className="text-center py-2 rounded-lg mt-2" style={{ backgroundColor: '#fff4e6' }}>
@@ -134,19 +135,19 @@ export default function PricingSection() {
               {/* タブレット・PC版コンテンツ */}
               <div className="hidden md:block p-6 bg-gray-100">
                 {/* 軽トラ画像プレースホルダー */}
-                <div className="mb-6 bg-white rounded-xl flex items-center justify-center p-6 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.15)]">
+                <div className="mb-6 bg-white rounded-xl flex items-center justify-center p-4 xl:p-6 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.15)] aspect-square">
                   <Image
                     src={plan.image}
                     alt="軽トラック"
-                    width={280}
-                    height={210}
-                    className="object-contain rounded-xl w-[200px] h-[150px] xl:w-[280px] xl:h-[210px]"
+                    width={400}
+                    height={400}
+                    className="object-contain rounded-xl w-full h-full"
                   />
                 </div>
 
                 <div className="space-y-1 mb-6">
                   <div className="bg-secondary text-white text-center py-3 rounded-full font-medium shadow-lg text-lg">
-                    運賃（軽トラ）
+                    運賃（トラック）
                   </div>
                   <div className="text-center text-xl font-bold text-gray-400">＋</div>
                   <div className="bg-secondary text-white text-center py-3 rounded-full font-medium shadow-lg text-lg">

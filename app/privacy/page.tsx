@@ -119,7 +119,7 @@ export default function Privacy() {
                   </a>
                 </p>
                 <p className="text-gray-400 text-sm">
-                  受付日時: 土日対応可能 9時〜18時
+                  毎日営業（9:00〜18:00）
                 </p>
               </div>
             </div>
