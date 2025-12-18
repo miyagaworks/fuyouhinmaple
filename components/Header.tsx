@@ -37,13 +37,16 @@ export default function Header() {
             <FaClipboardList className="flex-shrink-0" style={{ transform: 'translateY(1px)' }} />
             <span className="leading-none">ご利用の流れ</span>
           </Link>
-          <a
-            href="tel:0120-551-669"
-            className="hidden md:flex bg-link hover:bg-link-hover text-white hover:text-white font-bold py-2 px-6 rounded-full transition items-center justify-center gap-2"
-          >
-            <Image src="/images/freedial.svg" alt="フリーダイヤル" width={24} height={24} className="flex-shrink-0" />
-            <span className="text-lg leading-none -translate-y-0.5">0120-551-669</span>
-          </a>
+          <div className="hidden md:flex flex-col items-center">
+            <span className="text-sm font-bold text-orange-500 mb-1">毎日お電話対応可能！</span>
+            <a
+              href="tel:0120-551-669"
+              className="flex bg-link hover:bg-link-hover text-white hover:text-white font-bold py-2 px-6 rounded-full transition items-center justify-center gap-2"
+            >
+              <Image src="/images/freedial.svg" alt="フリーダイヤル" width={28} height={28} className="flex-shrink-0" />
+              <span className="text-2xl leading-none -translate-y-0.5">0120-551-669</span>
+            </a>
+          </div>
         </nav>
 
         {/* Mobile/Tablet Menu Button */}
