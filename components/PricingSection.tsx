@@ -109,8 +109,8 @@ export default function PricingSection() {
                     <Image
                       src={plan.image}
                       alt="軽トラック"
-                      width={100}
-                      height={75}
+                      width={index === 0 ? 80 : 100}
+                      height={index === 0 ? 60 : 75}
                       className="object-contain rounded-lg"
                     />
                   </div>
@@ -141,7 +141,7 @@ export default function PricingSection() {
                     alt="軽トラック"
                     width={400}
                     height={400}
-                    className="object-contain rounded-xl w-full h-full"
+                    className={`object-contain rounded-xl ${index === 0 ? 'w-[80%] h-[80%]' : 'w-full h-full'}`}
                   />
                 </div>
 
