@@ -57,6 +57,11 @@ export default function PricingSection() {
               <span className="text-3xl md:text-4xl">12,000円/m³目安</span><br />
               <span className="text-2xl md:text-3xl xl:mt-2 xl:inline-block">広島最安値を目指す</span>
             </p>
+            <div className="mt-4 inline-block border border-gray-500 rounded px-4 py-2 mx-0.5">
+              <p className="text-xs md:text-sm text-gray-700 text-left md:text-center">
+                ※一般廃棄物の処分については専門の許可業者に委託しております。
+              </p>
+            </div>
           </div>
 
           {/* プランカード */}
