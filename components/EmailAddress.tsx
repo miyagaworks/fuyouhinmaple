@@ -8,7 +8,7 @@ export default function EmailAddress() {
   // メールアドレスをパーツに分割
   const emailParts = {
     user: 'info',
-    domain: 'huyouhinmaple-hiroshima',
+    domain: 'hiroshima-maple',
     tld: 'com'
   }
 

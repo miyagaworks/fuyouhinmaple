@@ -18,9 +18,9 @@ export async function POST(request: NextRequest) {
     // ロリポップの場合:
     // SMTP_HOST=smtp.lolipop.jp
     // SMTP_PORT=465
-    // SMTP_USER=info@huyouhinmaple-hiroshima.com
+    // SMTP_USER=info@hiroshima-maple.com
     // SMTP_PASS=your-mail-password
-    // CONTACT_EMAIL=info@huyouhinmaple-hiroshima.com
+    // CONTACT_EMAIL=info@hiroshima-maple.com
 
     const smtpPort = parseInt(process.env.SMTP_PORT || '465')
     const transporter = nodemailer.createTransport({
@@ -261,7 +261,7 @@ ${message}
         <p>〒732-0029</p>
         <p>広島市東区福田1丁目838-1</p>
         <p>TEL：082-516-7800</p>
-        <p>Email：info@huyouhinmaple-hiroshima.com</p>
+        <p>Email：info@hiroshima-maple.com</p>
       </div>
       <div class="footer-note">
         このメールは自動送信されています。<br>
@@ -307,7 +307,7 @@ ${message}
 
 TEL：082-516-7800（受付時間：9時〜18時 土日対応可）
 フリーダイヤル：0120-551-669
-Email：info@huyouhinmaple-hiroshima.com
+Email：info@hiroshima-maple.com
 Web：https://huyouhinmaple-hiroshima.com
 ━━━━━━━━━━━━━━━━━━━━━━
 
@@ -517,7 +517,7 @@ Web：https://huyouhinmaple-hiroshima.com
           <p><strong>株式会社メイプル</strong></p>
           <p>〒732-0029</p>
           <p>広島市東区福田1丁目838-1</p>
-          <p>Email：info@huyouhinmaple-hiroshima.com</p>
+          <p>Email：info@hiroshima-maple.com</p>
           <p>Web：<a href="https://huyouhinmaple-hiroshima.com" style="color: #8DC33C;">https://huyouhinmaple-hiroshima.com</a></p>
         </div>
       </div>

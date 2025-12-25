@@ -47,145 +47,202 @@ export default function PricingSection() {
   return (
     <section id="plans" className="relative">
       {/* 料金プランエリア - 薄い緑 */}
-      <div className="pt-12 md:pt-16 pb-12 md:pb-16" style={{ backgroundColor: '#F0F8E4' }}>
+      <div
+        className="pt-12 md:pt-16 pb-12 md:pb-16"
+        style={{ backgroundColor: "#F0F8E4" }}
+      >
         <div className="container mx-auto px-4">
           {/* タイトル */}
-          <div ref={titleAnimation.ref} className={`text-center mb-12 md:mb-16 fade-in-up ${titleAnimation.isVisible ? 'visible' : ''}`}>
-            <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold mb-4">料金プラン</h2>
+          <div
+            ref={titleAnimation.ref}
+            className={`text-center mb-12 md:mb-16 fade-in-up ${
+              titleAnimation.isVisible ? "visible" : ""
+            }`}
+          >
+            <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold mb-4">
+              料金プラン
+            </h2>
             <p className="text-2xl md:text-3xl text-accent font-semibold">
-              通常より30%程度安い！<br />
-              <span className="text-3xl md:text-4xl">12,000円/m³目安</span><br />
-              <span className="text-2xl md:text-3xl xl:mt-2 xl:inline-block">広島最安値を目指す</span>
+              通常より30%程度安い！
+              <br />
+              <span className="text-3xl md:text-4xl">12,000円/m³目安</span>
+              <br />
+              <span className="text-2xl md:text-3xl xl:mt-2 xl:inline-block">
+                広島最安値を目指す
+              </span>
             </p>
             <p className="text-xs md:text-sm text-gray-700 mt-4 text-left md:text-center">
-              ※一般廃棄物の処分については専門の許可業者に委託しております。
+              ※メイプルが対応することができない案件に関しては、施主様と許可を持っている業者で契約していただきます。
             </p>
           </div>
 
           {/* プランカード */}
-          <div ref={plansAnimation.ref} className={`grid md:grid-cols-3 gap-8 md:gap-4 xl:gap-8 fade-in-up ${plansAnimation.isVisible ? 'visible' : ''}`}>
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200"
-            >
-              <div className="text-white py-6 px-6" style={{ background: `linear-gradient(to bottom, ${plan.gradientFrom}, ${plan.gradientTo})` }}>
-                {/* PC版ヘッダー */}
-                <div className="hidden xl:flex items-center gap-4">
-                  <div className="bg-white text-gray-900 w-24 h-24 rounded-full flex items-center justify-center text-[1.0625rem] font-bold shadow-lg flex-shrink-0 whitespace-pre-line text-center leading-tight">
-                    {plan.badge}
+          <div
+            ref={plansAnimation.ref}
+            className={`grid md:grid-cols-3 gap-8 md:gap-4 xl:gap-8 fade-in-up ${
+              plansAnimation.isVisible ? "visible" : ""
+            }`}
+          >
+            {plans.map((plan, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200"
+              >
+                <div
+                  className="text-white py-6 px-6"
+                  style={{
+                    background: `linear-gradient(to bottom, ${plan.gradientFrom}, ${plan.gradientTo})`,
+                  }}
+                >
+                  {/* PC版ヘッダー */}
+                  <div className="hidden xl:flex items-center gap-4">
+                    <div className="bg-white text-gray-900 w-24 h-24 rounded-full flex items-center justify-center text-[1.0625rem] font-bold shadow-lg flex-shrink-0 whitespace-pre-line text-center leading-tight">
+                      {plan.badge}
+                    </div>
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                      <h3 className="font-bold mb-2 text-3xl">{plan.name}</h3>
+                      <div className="border-t border-white mb-2"></div>
+                      <p className="text-sm opacity-90">{plan.description}</p>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0 flex flex-col justify-center">
-                    <h3 className="font-bold mb-2 text-3xl">{plan.name}</h3>
-                    <div className="border-t border-white mb-2"></div>
-                    <p className="text-sm opacity-90">{plan.description}</p>
+
+                  {/* タブレット版ヘッダー */}
+                  <div className="hidden md:block xl:hidden">
+                    <span className="inline-block bg-white text-gray-900 text-xs font-bold px-4 py-1.5 rounded-full mb-3 shadow-lg">
+                      {plan.badge}
+                    </span>
+                    <h3 className="font-bold mb-1 text-2xl">{plan.name}</h3>
+                    <p className="text-sm opacity-90 min-h-[2.5rem]">
+                      {plan.description}
+                    </p>
+                  </div>
+
+                  {/* スマホ版ヘッダー */}
+                  <div className="md:hidden flex items-center gap-3">
+                    <div className="bg-white text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-xs font-bold shadow-lg flex-shrink-0 whitespace-pre-line text-center leading-tight">
+                      {plan.badge}
+                    </div>
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                      <h3 className="font-bold mb-1 text-xl">{plan.name}</h3>
+                      <div className="border-t border-white mb-1"></div>
+                      <p className="text-sm opacity-90">{plan.description}</p>
+                    </div>
                   </div>
                 </div>
 
-                {/* タブレット版ヘッダー */}
-                <div className="hidden md:block xl:hidden">
-                  <span className="inline-block bg-white text-gray-900 text-xs font-bold px-4 py-1.5 rounded-full mb-3 shadow-lg">
-                    {plan.badge}
-                  </span>
-                  <h3 className="font-bold mb-1 text-2xl">{plan.name}</h3>
-                  <p className="text-sm opacity-90 min-h-[2.5rem]">{plan.description}</p>
+                {/* スマホ版コンテンツ - 横並びコンパクト */}
+                <div className="md:hidden p-4 bg-gray-100">
+                  <div className="flex gap-3">
+                    {/* 左側: 軽トラ画像 */}
+                    <div className="flex-shrink-0 bg-white rounded-lg flex items-center justify-center p-4 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.15)]">
+                      <Image
+                        src={plan.image}
+                        alt="軽トラック"
+                        width={index === 0 ? 80 : 100}
+                        height={index === 0 ? 60 : 75}
+                        className="object-contain rounded-lg"
+                      />
+                    </div>
+                    {/* 右側: 運賃等 + 価格 */}
+                    <div className="flex-1 flex flex-col justify-between">
+                      {/* 上: 運賃+作業費+人件費 */}
+                      <div className="bg-secondary text-white text-center py-2 rounded-full font-medium shadow-lg text-sm leading-tight">
+                        運賃 + 作業費 + 人件費
+                        <br />
+                        （トラック）
+                      </div>
+                      {/* 下: 価格 */}
+                      <div
+                        className="text-center py-2 rounded-lg mt-2"
+                        style={{ backgroundColor: "#fff4e6" }}
+                      >
+                        <p
+                          className="text-xl font-bold"
+                          style={{ color: "#ec6c26" }}
+                        >
+                          {plan.price}
+                        </p>
+                        <p className="text-xs text-gray-600 font-medium">
+                          （税込）
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* スマホ版ヘッダー */}
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="bg-white text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-xs font-bold shadow-lg flex-shrink-0 whitespace-pre-line text-center leading-tight">
-                    {plan.badge}
-                  </div>
-                  <div className="flex-1 min-w-0 flex flex-col justify-center">
-                    <h3 className="font-bold mb-1 text-xl">{plan.name}</h3>
-                    <div className="border-t border-white mb-1"></div>
-                    <p className="text-sm opacity-90">{plan.description}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* スマホ版コンテンツ - 横並びコンパクト */}
-              <div className="md:hidden p-4 bg-gray-100">
-                <div className="flex gap-3">
-                  {/* 左側: 軽トラ画像 */}
-                  <div className="flex-shrink-0 bg-white rounded-lg flex items-center justify-center p-4 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.15)]">
+                {/* タブレット・PC版コンテンツ */}
+                <div className="hidden md:block p-6 bg-gray-100">
+                  {/* 軽トラ画像プレースホルダー */}
+                  <div className="mb-6 bg-white rounded-xl flex items-center justify-center p-4 xl:p-6 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.15)] aspect-square">
                     <Image
                       src={plan.image}
                       alt="軽トラック"
-                      width={index === 0 ? 80 : 100}
-                      height={index === 0 ? 60 : 75}
-                      className="object-contain rounded-lg"
+                      width={400}
+                      height={400}
+                      className={`object-contain rounded-xl ${
+                        index === 0 ? "w-[80%] h-[80%]" : "w-full h-full"
+                      }`}
                     />
                   </div>
-                  {/* 右側: 運賃等 + 価格 */}
-                  <div className="flex-1 flex flex-col justify-between">
-                    {/* 上: 運賃+作業費+人件費 */}
-                    <div className="bg-secondary text-white text-center py-2 rounded-full font-medium shadow-lg text-sm leading-tight">
-                      運賃 + 作業費 + 人件費<br />
-                      （トラック）
+
+                  <div className="space-y-1 mb-6">
+                    <div className="bg-secondary text-white text-center py-3 rounded-full font-medium shadow-lg text-lg">
+                      運賃（トラック）
                     </div>
-                    {/* 下: 価格 */}
-                    <div className="text-center py-2 rounded-lg mt-2" style={{ backgroundColor: '#fff4e6' }}>
-                      <p className="text-xl font-bold" style={{ color: '#ec6c26' }}>
-                        {plan.price}
-                      </p>
-                      <p className="text-xs text-gray-600 font-medium">（税込）</p>
+                    <div className="text-center text-xl font-bold text-gray-400">
+                      ＋
                     </div>
+                    <div className="bg-secondary text-white text-center py-3 rounded-full font-medium shadow-lg text-lg">
+                      作業費
+                    </div>
+                    <div className="text-center text-xl font-bold text-gray-400">
+                      ＋
+                    </div>
+                    <div className="bg-secondary text-white text-center py-3 rounded-full font-medium shadow-lg text-lg">
+                      人件費
+                    </div>
+                  </div>
+
+                  <div
+                    className="mt-6 text-center py-4 rounded-xl"
+                    style={{ backgroundColor: "#fff4e6" }}
+                  >
+                    <p
+                      className="text-3xl xl:text-4xl font-bold"
+                      style={{ color: "#ec6c26" }}
+                    >
+                      {/* タブレット: 2行表示 */}
+                      <span className="xl:hidden">
+                        {plan.price.split("〜")[0]}〜<br />
+                        {plan.price.split("〜")[1]}
+                      </span>
+                      {/* PC: 1行表示 */}
+                      <span className="hidden xl:inline">{plan.price}</span>
+                    </p>
+                    <p className="text-sm text-gray-600 mt-1 font-medium">
+                      （税込）
+                    </p>
                   </div>
                 </div>
               </div>
-
-              {/* タブレット・PC版コンテンツ */}
-              <div className="hidden md:block p-6 bg-gray-100">
-                {/* 軽トラ画像プレースホルダー */}
-                <div className="mb-6 bg-white rounded-xl flex items-center justify-center p-4 xl:p-6 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.15)] aspect-square">
-                  <Image
-                    src={plan.image}
-                    alt="軽トラック"
-                    width={400}
-                    height={400}
-                    className={`object-contain rounded-xl ${index === 0 ? 'w-[80%] h-[80%]' : 'w-full h-full'}`}
-                  />
-                </div>
-
-                <div className="space-y-1 mb-6">
-                  <div className="bg-secondary text-white text-center py-3 rounded-full font-medium shadow-lg text-lg">
-                    運賃（トラック）
-                  </div>
-                  <div className="text-center text-xl font-bold text-gray-400">＋</div>
-                  <div className="bg-secondary text-white text-center py-3 rounded-full font-medium shadow-lg text-lg">
-                    作業費
-                  </div>
-                  <div className="text-center text-xl font-bold text-gray-400">＋</div>
-                  <div className="bg-secondary text-white text-center py-3 rounded-full font-medium shadow-lg text-lg">
-                    人件費
-                  </div>
-                </div>
-
-                <div className="mt-6 text-center py-4 rounded-xl" style={{ backgroundColor: '#fff4e6' }}>
-                  <p className="text-3xl xl:text-4xl font-bold" style={{ color: '#ec6c26' }}>
-                    {/* タブレット: 2行表示 */}
-                    <span className="xl:hidden">
-                      {plan.price.split('〜')[0]}〜<br />
-                      {plan.price.split('〜')[1]}
-                    </span>
-                    {/* PC: 1行表示 */}
-                    <span className="hidden xl:inline">{plan.price}</span>
-                  </p>
-                  <p className="text-sm text-gray-600 mt-1 font-medium">（税込）</p>
-                </div>
-              </div>
-            </div>
-          ))}
+            ))}
           </div>
 
           {/* 解体工事特別パック */}
-          <div ref={specialPackAnimation.ref} className={`rounded-2xl shadow-lg overflow-hidden fade-in-up mt-8 ${specialPackAnimation.isVisible ? 'visible' : ''}`} style={{ backgroundColor: '#f5d10f', color: '#572A06' }}>
+          <div
+            ref={specialPackAnimation.ref}
+            className={`rounded-2xl shadow-lg overflow-hidden fade-in-up mt-8 ${
+              specialPackAnimation.isVisible ? "visible" : ""
+            }`}
+            style={{ backgroundColor: "#f5d10f", color: "#572A06" }}
+          >
             <div className="p-8">
               {/* タイトル（スマホ・タブレット） */}
               <div className="xl:hidden flex items-center gap-3 mb-6 justify-center">
                 <FaCrown className="text-3xl md:text-4xl" />
-                <h3 className="text-2xl md:text-3xl font-bold">解体工事特別パック</h3>
+                <h3 className="text-2xl md:text-3xl font-bold">
+                  解体工事特別パック
+                </h3>
               </div>
 
               {/* PC版：2カラムレイアウト */}
@@ -210,9 +267,29 @@ export default function PricingSection() {
                       <p className="text-lg">木製品は無料で回収！</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl flex-shrink-0 leading-none pt-1">★</span>
+                      <span className="text-2xl flex-shrink-0 leading-none pt-1">
+                        ★
+                      </span>
                       <p className="text-lg text-justify">
-                        解体工事会社が直接まとめてワンストップで行いますので、中間マージンがかからず、<span className={`font-bold px-2 py-0.5 rounded ${specialPackAnimation.isVisible ? 'animate-highlighter' : ''}`} style={{ backgroundImage: 'linear-gradient(transparent 50%, #7ed957 50%)', backgroundRepeat: 'no-repeat', backgroundPosition: 'left bottom', backgroundSize: specialPackAnimation.isVisible ? undefined : '0% 60%' }}>10〜20万円程度安く出来ます！</span>
+                        解体工事会社が直接まとめてワンストップで行いますので、中間マージンがかからず、
+                        <span
+                          className={`font-bold px-2 py-0.5 rounded ${
+                            specialPackAnimation.isVisible
+                              ? "animate-highlighter"
+                              : ""
+                          }`}
+                          style={{
+                            backgroundImage:
+                              "linear-gradient(transparent 50%, #7ed957 50%)",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "left bottom",
+                            backgroundSize: specialPackAnimation.isVisible
+                              ? undefined
+                              : "0% 60%",
+                          }}
+                        >
+                          10〜20万円程度安く出来ます！
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -225,7 +302,7 @@ export default function PricingSection() {
                     fill
                     sizes="(max-width: 1280px) 0px, 50vw"
                     className="object-cover"
-                    style={{ objectPosition: '50% 55%' }}
+                    style={{ objectPosition: "50% 55%" }}
                   />
                 </div>
               </div>
@@ -244,9 +321,29 @@ export default function PricingSection() {
                         <p className="text-sm">木製品は無料で回収！</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <span className="text-xl flex-shrink-0 leading-none pt-1">★</span>
+                        <span className="text-xl flex-shrink-0 leading-none pt-1">
+                          ★
+                        </span>
                         <p className="text-sm text-justify pr-4">
-                          解体工事会社が直接まとめてワンストップで行いますので、中間マージンがかからず、<span className={`font-bold px-1 py-0.5 rounded ${specialPackAnimation.isVisible ? 'animate-highlighter' : ''}`} style={{ backgroundImage: 'linear-gradient(transparent 50%, #7ed957 50%)', backgroundRepeat: 'no-repeat', backgroundPosition: 'left bottom', backgroundSize: specialPackAnimation.isVisible ? undefined : '0% 60%' }}>10〜20万円程度安く出来ます！</span>
+                          解体工事会社が直接まとめてワンストップで行いますので、中間マージンがかからず、
+                          <span
+                            className={`font-bold px-1 py-0.5 rounded ${
+                              specialPackAnimation.isVisible
+                                ? "animate-highlighter"
+                                : ""
+                            }`}
+                            style={{
+                              backgroundImage:
+                                "linear-gradient(transparent 50%, #7ed957 50%)",
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "left bottom",
+                              backgroundSize: specialPackAnimation.isVisible
+                                ? undefined
+                                : "0% 60%",
+                            }}
+                          >
+                            10〜20万円程度安く出来ます！
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -275,9 +372,29 @@ export default function PricingSection() {
                     <p className="text-sm">木製品は無料で回収！</p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="text-xl flex-shrink-0 leading-none pt-1">★</span>
+                    <span className="text-xl flex-shrink-0 leading-none pt-1">
+                      ★
+                    </span>
                     <p className="text-sm text-justify">
-                      解体工事会社が直接まとめてワンストップで行いますので、中間マージンがかからず、<span className={`font-bold px-1 py-0.5 rounded ${specialPackAnimation.isVisible ? 'animate-highlighter' : ''}`} style={{ backgroundImage: 'linear-gradient(transparent 50%, #7ed957 50%)', backgroundRepeat: 'no-repeat', backgroundPosition: 'left bottom', backgroundSize: specialPackAnimation.isVisible ? undefined : '0% 60%' }}>10〜20万円程度安く出来ます！</span>
+                      解体工事会社が直接まとめてワンストップで行いますので、中間マージンがかからず、
+                      <span
+                        className={`font-bold px-1 py-0.5 rounded ${
+                          specialPackAnimation.isVisible
+                            ? "animate-highlighter"
+                            : ""
+                        }`}
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(transparent 50%, #7ed957 50%)",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "left bottom",
+                          backgroundSize: specialPackAnimation.isVisible
+                            ? undefined
+                            : "0% 60%",
+                        }}
+                      >
+                        10〜20万円程度安く出来ます！
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -291,14 +408,16 @@ export default function PricingSection() {
                   />
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
 
       {/* CTA - PC版のみ表示 */}
-      <div className="hidden xl:block text-white py-16 md:py-20" style={{ backgroundColor: '#EC6C26' }}>
+      <div
+        className="hidden xl:block text-white py-16 md:py-20"
+        style={{ backgroundColor: "#EC6C26" }}
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4">
@@ -308,14 +427,26 @@ export default function PricingSection() {
           </div>
           <div className="flex flex-col md:flex-row gap-6 justify-center max-w-6xl mx-auto">
             <div className="flex-1">
-              <CTAButton variant="phone" size="2xl" fullWidth showDescription className="!h-20 !px-8 [&_span]:!text-4xl [&_img]:!w-14 [&_img]:!h-14" />
+              <CTAButton
+                variant="phone"
+                size="2xl"
+                fullWidth
+                showDescription
+                className="!h-20 !px-8 [&_span]:!text-4xl [&_img]:!w-14 [&_img]:!h-14"
+              />
             </div>
             <div className="flex-1">
-              <CTAButton variant="form" size="2xl" fullWidth showDescription className="!h-20 !px-8 [&_span]:!text-4xl [&_svg]:!text-[3.5rem]" />
+              <CTAButton
+                variant="form"
+                size="2xl"
+                fullWidth
+                showDescription
+                className="!h-20 !px-8 [&_span]:!text-4xl [&_svg]:!text-[3.5rem]"
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
