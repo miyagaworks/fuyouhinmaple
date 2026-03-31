@@ -7,6 +7,7 @@ import ReasonsSection from '@/components/ReasonsSection'
 import WarningSection from '@/components/WarningSection'
 import FlowSection from '@/components/FlowSection'
 import ContactForm from '@/components/ContactForm'
+import CasesSection from '@/components/CasesSection'
 import ScrollToTop from '@/components/ScrollToTop'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,6 +18,7 @@ export default function Home() {
     <main className="min-h-screen xl:pb-0 pb-20">
       <Header />
       <HeroSection />
+      <CasesSection />
       <PricingSection />
       <ServicesSection />
       <ProblemsSection />
@@ -28,15 +30,15 @@ export default function Home() {
       {/* フッター */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-12 gap-8">
-            <div className="md:col-span-6">
+          <div className="flex flex-col md:flex-row flex-wrap lg:flex-nowrap gap-y-8 lg:justify-between gap-x-8">
+            <div className="w-full md:w-1/2 lg:w-auto lg:max-w-sm">
               <h3 className="text-xl font-bold mb-4">メイプルのお片付け</h3>
-              <p className="text-sm text-gray-400 lg:mr-10 leading-relaxed">
+              <p className="text-sm text-gray-400 leading-relaxed text-justify">
                 広島県全域で不用品回収、遺品整理、解体前のお片付けを承っております。お客様のご要望に合わせた柔軟な対応と、丁寧な作業で信頼をいただいております。少量のお片付けから大規模な整理まで、まずはお気軽にご相談ください。土日対応も可能です。
               </p>
             </div>
 
-            <div className="md:col-span-3">
+            <div className="w-full md:w-1/2 lg:w-auto">
               <h3 className="text-xl font-bold mb-4">お問い合わせ</h3>
               <div className="space-y-2">
                 <p className="flex items-center">
@@ -61,7 +63,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="md:col-span-3">
+            <div className="w-full md:w-1/2 lg:w-auto">
               <h3 className="text-xl font-bold mb-4">会社概要</h3>
               <div className="space-y-2">
                 <p>
