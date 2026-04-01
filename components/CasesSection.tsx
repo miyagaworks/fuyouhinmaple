@@ -22,7 +22,7 @@ export default function CasesSection() {
           ref={titleAnimation.ref}
           className={`text-center mb-10 md:mb-14 fade-in-up ${titleAnimation.isVisible ? 'visible' : ''}`}
         >
-          <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold mb-4">お片付け事例</h2>
+          <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold mb-4">施工事例</h2>
           <p className="text-2xl md:text-3xl text-accent font-semibold">
             様々なお片付けに対応します
           </p>
@@ -50,7 +50,7 @@ function CaseRow({ item, index }: { item: typeof cases[number]; index: number })
       <div className="flex-1 relative aspect-[4/3] rounded-lg overflow-hidden shadow-md">
         <Image
           src={item.before}
-          alt={`お片付け事例${index + 1} Before`}
+          alt={`施工事例${index + 1} Before`}
           fill
           sizes="(max-width: 768px) 45vw, 400px"
           className="object-cover"
@@ -69,7 +69,7 @@ function CaseRow({ item, index }: { item: typeof cases[number]; index: number })
       <div className="flex-1 relative aspect-[4/3] rounded-lg overflow-hidden shadow-md">
         <Image
           src={item.after}
-          alt={`お片付け事例${index + 1} After`}
+          alt={`施工事例${index + 1} After`}
           fill
           sizes="(max-width: 768px) 45vw, 400px"
           className="object-cover"
